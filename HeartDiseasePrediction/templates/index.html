@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/style.css">
+
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age">
+
+        <label for="sex">Sex (1=Male, 0=Female):</label>
+        <input type="text" id="sex" name="sex">
+
+        <label for="cp">Chest Pain Type (0-3):</label>
+        <input type="text" id="cp" name="cp">
+
+        <label for="trestbps">Resting Blood Pressure:</label>
+        <input type="text" id="trestbps" name="trestbps">
+
+        <label for="chol">Cholesterol:</label>
+        <input type="text" id="chol" name="chol">
+
+        <label for="fbs">Fasting Blood Sugar (1=True, 0=False):</label>
+        <input type="text" id="fbs" name="fbs">
+
+        <label for="restecg">Resting ECG Results (0-2):</label>
+        <input type="text" id="restecg" name="restecg">
+
+        <label for="thalach">Max Heart Rate Achieved:</label>
+        <input type="text" id="thalach" name="thalach">
+
+        <label for="exang">Exercise Induced Angina (1=Yes, 0=No):</label>
+        <input type="text" id="exang" name="exang">
+
+        <label for="oldpeak">ST Depression Induced by Exercise:</label>
+        <input type="text" id="oldpeak" name="oldpeak">
+
+        <label for="slope">Slope of Peak Exercise ST Segment (0-2):</label>
+        <input type="text" id="slope" name="slope">
+
+        <label for="ca">Number of Major Vessels (0-3):</label>
+        <input type="text" id="ca" name="ca">
+
+        <label for="thal">Thalassemia (0=Normal, 1=Fixed Defect, 2=Reversible Defect):</label>
+        <input type="text" id="thal" name="thal">
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
